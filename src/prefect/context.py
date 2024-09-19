@@ -430,7 +430,7 @@ class TagsContext(ContextModel):
         # Return an empty `TagsContext` instead of `None` if no context exists
         return cls.__var__.get(TagsContext())
 
-    __var__ = ContextVar("tags")
+    __var__: ContextVar = ContextVar("tags")
 
 
 class SettingsContext(ContextModel):
@@ -447,7 +447,7 @@ class SettingsContext(ContextModel):
     profile: Profile
     settings: Settings
 
-    __var__ = ContextVar("settings")
+    __var__: ContextVar = ContextVar("settings")
 
     def __hash__(self) -> int:
         return hash(self.settings)
