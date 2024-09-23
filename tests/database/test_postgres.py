@@ -6,7 +6,7 @@ from prefect.settings import PREFECT_API_DATABASE_CONNECTION_URL
 
 pytestmark = pytest.mark.skipif(
     not PREFECT_API_DATABASE_CONNECTION_URL.value_from(
-        prefect.settings.get_settings_from_env()
+        prefect.settings.Settings()
     ).startswith("postgresql"),
     reason="These tests apply only to Postgres",
 )
